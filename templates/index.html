@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Separation Technique Finder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css" />
+  <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+          <li><a href="#" id="finderLink" class="finder">Finder</a></li>
+          <li><a href="#" id="historyLink">History</a></li>
+          <li><a href="#" id="TechniquesLink">Separation Techniques</a></li>
+        </ul>
+      </nav>
+
+  <div id="finder" class="container">
+    <h1>Advanced Separation Technique Finder</h1>
+    <form method="POST">
+      <label>Is the mixture a solid-liquid, liquid-liquid, gas mixture, or solid-solid?</label><br />
+      <select name="mixture_type" required>
+        <option value="select">Select</option>
+        <option value="solid-solid">Solid-Solid</option>
+        <option value="solid-liquid">Solid-Liquid</option>
+        <option value="liquid-liquid">Liquid-Liquid</option>
+        <option value="gas-gas">Gas-Gas</option>
+      </select><br /><br />
+
+      <div id="questions"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+    
+
+    <div id="result" class="result">{{ result }}</div>
+  <div class="image-container" style="display: flex; flex-direction: column; align-items: center;">
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+        {% if image_path %}
+        <div class="image-result">
+            <img src="{{ image_path }}" alt="Separation technique image" style="max-width: 400px; padding-right: 20px;">
+        </div>
+        {% endif %}
+
+        {% if image_path2 %}
+        <div class="image-result2">
+            <img src="{{ image_path2 }}" alt="Separation technique image" style="max-width: 400px;">
+        </div>
+        {% endif %}
+    </div>
+
+    {% if image_path3 %}
+    <div class="image-result3">
+        <img src="{{ image_path3 }}" alt="Additional information image" style="max-width: 1000px; margin-top: 20px;">
+    </div>
+    {% endif %}
+    {% if image_path4 %}
+    <div class="image-result4">
+        <img src="{{ image_path4 }}" alt="Additional information image" style="max-width: 1000px; margin-top: 20px;">
+    </div>
+    {% endif %}
+   </div>
+</div>
+
+
+  <br>
+  <br>
+
+  <div id="history" style="display: none;" class="container">
+    <h2>History of Separation Techniques</h2>
+    <div>
+      <h3>Filtration</h3>
+      <p><strong>Year of Discovery:</strong> Around 500 BCE</p>
+      <p><strong>Discoverer:</strong> Ancient civilizations like Egyptians and Greeks</p>
+      <p>
+        Filtration was one of the earliest techniques for separating mixtures. The Egyptians used simple filtration techniques by passing water through sand and gravel to purify drinking water. The Greeks utilized cloth and porous materials for filtering wine and other liquids.
+      </p>
+
+      <h3>Distillation</h3>
+      <p><strong>Year of Discovery:</strong> 1200 BCE</p>
+      <p><strong>Discoverer:</strong> Jabir ibn Hayyan</p>
+      <p>
+        The first known use of distillation was by the Babylonians, who used it for purifying water and producing essential oils. Over time, the technique became essential for alcohol production and chemical industries.
+      </p>
+
+      <h3>Fractional Distillation</h3>
+      <p><strong>Year of Discovery:</strong> 9th Century</p>
+      <p><strong>Discoverer:</strong> Babylonians</p>
+      <p>
+        The Jabirian experiments with fractional distillation of animal and vegetable substances, and to a lesser degree also of mineral substances, formed the main topic of the De anima in arte alkimiae, an originally Arabic work falsely attributed to Avicenna that was translated into Latin and would go on to form the most important alchemical source for Roger Bacon.
+      </p>
+
+      <h3>Chromatography</h3>
+      <p><strong>Year of Discovery:</strong> 1900</p>
+      <p><strong>Discoverer:</strong> Mikhail Tsvet</p>
+      <p>
+        Russian botanist Mikhail Tsvet discovered chromatography while separating plant pigments. He used it to
+        differentiate pigments based on their interactions with the stationary phase. Today, it has widespread
+        applications in chemistry and biochemistry.
+      </p>
+
+      <h3>Magnetic Separation</h3>
+      <p><strong>Year of Discovery:</strong> 19th Century</p>
+      <p><strong>Discoverer:</strong> Michael Faraday</p>
+      <p>
+        Michael Faraday discovered magnetic separation when a substance is put in a magnetic environment, the intensity of the environment is modified by it. With this information, he discovered that different materials can be separated with their magnetic properties.
+      </p>
+
+      <h3>Crystallization</h3>
+      <p><strong>Year of Discovery:</strong> 17th Century</p>
+      <p><strong>Discoverer:</strong> Robert Boyle</p>
+      <p>
+        Robert Boyle conducted experiments that involved crystallization, contributing to the scientific exploration of chemical substances and their transformations.
+      </p>
+
+      <h3>Centrifugation</h3>
+      <p><strong>Year of Discovery:</strong> 1864</p>
+      <p><strong>Discoverer:</strong> Antonin Prandtl</p>
+      <p>
+        He is credited with inventing the first centrifuge-type machine, which was primarily used in the dairy industry to separate milk and cream on a large scale.
+      </p>
+    </div>
+  </div>
+
+  <div id="Technique" style="display: none;" class="container">
+    <h2>Separation Techniques</h2>
+    <div class="Filtration" style="flex: 2;">
+      <h2>Filtration</h2>
+      <p><strong>Used to separate:</strong> Solid-Liquid</p>
+      <p>
+      Filtration is a common technique used to separate a solid from a liquid in a mixture. It involves passing the mixture through a filter paper placed in a funnel. The liquid, called the filtrate, flows through the tiny pores of the filter paper, while the solid particles are trapped on the surface as residue. This method is widely used in both laboratories and industrial processes to purify liquids, remove impurities, or collect solid materials. It's especially useful when the solid is not dissolved in the liquid and the particle size is large enough to be retained by the filter.
+      </p>
+      <p><strong>Process:</strong> 
+        Filtration is a laboratory technique used to separate solids from liquids. In the process, a funnel is fitted with filter paper and placed over a receiving flask. The mixture is poured into the funnel, where the solid particles are trapped by the filter paper, while the liquid, called the filtrate, passes through into the flask. This method is commonly used in chemical experiments to purify liquids, remove unwanted solid impurities, or collect solid products after a reaction. Key equipment includes the filter paper, funnel, and flask.
+      </p>
+      <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+      <img src="static/Filtration.png" style="max-width: 400px;">
+    </div>
+    
+    <div class="Decantation" style="flex: 2;">
+      <h2>Decantation</h2>
+      <p><strong>Used to separate:</strong> Solid-Liquid and liquid-Liquid</p>
+      <p>
+        Decantation is a simple separation process used to separate liquids from solids or two immiscible liquids based on differences in density. In this method, the mixture is allowed to sit undisturbed so that the heavier solid particles or denser liquid settle at the bottom of the container. The lighter liquid is then carefully poured off, leaving the heavier substance behind. Decantation is commonly used in everyday situations, such as separating oil from water, or in laboratories to remove liquid from precipitated solids without disturbing the sediment.
+      </p>
+      <p><strong>Process:</strong> 
+        In solid-liquid separation, the mixture is allowed to settle in a beaker, so that the denser solid particles sink to the bottom. After settling, the clear liquid (supernatant) is carefully poured off into another flask or graduated cylinder, leaving the solid residue behind in the beaker. For liquid-liquid separation, where the liquids are immiscible (like oil and water), the denser liquid settles at the bottom. The lighter liquid is then carefully decanted into another container, such as a separatory funnel, to achieve more precision. In both processes, stirring rods or pipettes may be used for controlled pouring and reducing disturbance of the settled layers.
+      </p>
+    </div>
+      <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+      <img src="static/Decantation.png" style="max-width: 300px;">
+      <img src="static/Decantation2.png" style="max-width: 300px;">
+    </div>
+
+  <div class="Centrifugation" style="flex: 2;">
+    <h2>Centrifugation</h2>
+    <p><strong>Used to separate:</strong> Solid-Liquid and Solid-Solid</p>
+    <p>
+      Centrifugation is a widely used laboratory technique that involves spinning samples at high speeds to separate components based on their density. When a sample is placed in a centrifuge, the centrifugal force causes denser particles to move outward, settling at the bottom of the container, while lighter components remain suspended in the liquid. This method is essential in various fields, including biochemistry, microbiology, and clinical diagnostics, allowing for the isolation of cells, proteins, and other biomolecules for further analysis. 
+    </p>
+    <p><strong>Process:</strong> In solid-liquid centrifugation, a sample containing solid particles suspended in a liquid is placed in centrifuge tubes. The centrifuge spins at high speeds, creating a force that causes the denser solid particles to sediment at the bottom of the tube, forming a pellet, while the less dense liquid, known as the supernatant, remains above. This method is commonly used in biological and chemical laboratories for purifying cells, proteins, or other biomolecules.
+
+      In solid-solid centrifugation, a mixture of solid particles is typically suspended in a liquid medium. When the centrifuge spins, different solid particles separate based on their density or size, facilitated by the surrounding liquid. The heavier particles are forced outward, while lighter particles remain closer to the center. This technique is instrumental in applications such as mineral processing and the separation of powdered substances in various industrial settings.
+      </p>
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Centrifugation.png" style="max-width: 500px;">
+  </div>
+
+  <div class="Crystallization" style="flex: 2;">
+    <h2>Crystallization</h2>
+    <p><strong>Used to separate:</strong> Solid-Liquid</p>
+    <p>
+      Crystallization is a vital process in chemistry and materials science, where a solid forms from a solution. This occurs when the concentration of a solute exceeds its solubility, leading to the formation of organized structures known as crystals. Crystallization plays a crucial role in various applications, including the production of pure substances, the formation of minerals in geology, and the development of pharmaceuticals. The process can be influenced by factors such as temperature, pressure, and the presence of impurities.
+    </p>
+    <p><strong>Process:</strong> 
+      The process typically begins with dissolving the impure substance in a suitable solvent, often using a heating mantle or hot plate to increase solubility. Once the solution is supersaturated, the solution is allowed to cool, often in a crystallization dish or beaker. As the temperature drops, the solubility of the compound decreases, leading to the formation of pure crystals. To facilitate the process, filter paper and a funnel are used to separate the crystals from the remaining solution.
+    </p>
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Crystallization.png" style="max-width: 400px;">
+  </div> 
+
+  <div class="Distillation" style="flex: 2;">
+    <h2>Distillation</h2>
+    <p><strong>Used to separate:</strong> Solid-Liquid and Liquid-Liquid</p>
+    <p>
+      Distillation is a separation technique used to purify a liquid or separate components in a mixture based on differences in their boiling points. The process involves heating the mixture until the component with the lowest boiling point evaporates. The vapor is then cooled in a condenser and collected as a purified liquid, known as the distillate. The remaining components, including solids or impurities, are left behind. Distillation is commonly used for purifying water, separating alcohol from a solution, and refining petroleum products. It is an essential process in both industrial and laboratory settings.
+    </p>
+    <p><strong>Process:</strong> 
+    The process of distillation in a laboratory involves using several key pieces of equipment. A distillation flask is used to hold the liquid mixture, which is heated using a Bunsen burner or hot plate. As the liquid heats, the component with the lower boiling point vaporizes first. The vapor then travels through a condenser, where it cools and condenses back into a liquid. This liquid, called the distillate, is collected in a receiving flask. A thermometer is used to monitor the temperature, ensuring precise separation.
+    </p>
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Distillation.png" style="max-width: 300px;">
+  </div>
+
+  <div class="FractionalDistillation" style="flex: 2;">
+    <h2>Fractional Distillation</h2>
+    <p><strong>Used to separate:</strong> Liquid-Liquid</p>
+    <p>
+      Fractional distillation is a separation technique used to isolate components from a mixture based on differences in their boiling points. It involves heating the mixture and separating the vaporized components into distinct fractions, or layers, as they condense at varying temperatures. The process occurs in a distillation column, where the mixture is heated from the bottom and the vapor rises, passing through a series of condensation points. As the vapor cools, the components with higher boiling points condense first, separating from those with lower boiling points. The resulting fractions are collected separately, allowing for the purification of individual components from the original mixture. This method is commonly used in the petroleum industry to refine crude oil into various petroleum products, such as gasoline, diesel, and jet fuel.
+    </p>
+    <p><strong>Process:</strong> 
+      To perform fractional distillation, start by setting up a distillation apparatus, including a round-bottom flask, a fractional distillation column, a condenser, and a receiving flask. Begin by adding the liquid mixture to the round-bottom flask and connect it to the column. Heat the flask using a heating mantle or hot plate to gradually bring the mixture to a boil. As the vapors rise through the fractional column, they will condense and re-vaporize multiple times, allowing for separation based on boiling points. The ascending vapors then pass through the condenser, where they cool and turn back into liquid. Collect the separated fractions in the receiving flask, monitoring the temperature with a thermometer to ensure proper fraction collection.
+    </p>
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Fractional Distillation.png" style="max-width: 300px;">
+  </div>
+
+  <div class="Adsorption" style="flex: 2;">
+    <h2>Adsorption</h2>
+    <p><strong>Used to separate:</strong> Gas-Gas</p>
+    <p>
+      Adsorption is a surface phenomenon where molecules or atoms of a substance (adsorbate) accumulate onto the surface of another material (adsorbent) due to attractive forces. Unlike absorption, where molecules penetrate the material's bulk, adsorption relies on surface interactions. Common adsorbents include activated carbon, silica gel, and zeolites, with factors like surface area, temperature, pressure, and concentration influencing the process. Adsorption has diverse applications in water purification, air filtration, gas separation, catalysis, and medical treatments
+    </p>
+    <p><strong>Process:</strong> 
+      Start by selecting an appropriate adsorbent, such as activated charcoal or silica gel, which has a high surface area and specific affinity for one of the gases. Set up a column filled with the adsorbent material. Introduce the gas mixture into the column, allowing it to flow at a controlled rate. The gas that is more strongly adsorbed will adhere to the adsorbent, while the other gas will pass through and can be collected at the outlet. Adjust the flow rate and temperature if necessary to optimize separation. Finally, to retrieve the adsorbed gas, you can either change the temperature or pressure or use a desorption technique, allowing for the collection of the separated gases.    </p>
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Adsorption.png" style="max-width: 300px;">
+  </div>
+
+  <div class="Sieving" style="flex: 2;">
+    <h2>Sieving</h2>
+    <p><strong>Used to separate:</strong> Solid-Solid</p>
+    <p>
+      Sieving is a simple and effective separation technique used to separate solid particles of different sizes. It involves passing a mixture of solids through a sieve or mesh with evenly spaced holes or pores. The smaller particles pass through the sieve, while the larger particles remain on top. Sieving is commonly used in various industries, including construction, pharmaceuticals, and food processing, to separate materials by size, remove impurities, or classify powders. The process can be manual or mechanical, using vibrating screens or rotating drums to improve efficiency. 
+    </p>
+    <p><strong>Process:</strong> 
+      The sample is placed on top of a sieve stack, often consisting of multiple sieves with decreasing mesh sizes. The stack is then shaken or vibrated, allowing gravity and motion to facilitate the separation. As the finer particles fall through the mesh, they collect in the lower sieves or beneath the stack, while coarser particles remain on top.
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Sieving.png" style="max-width: 300px;">
+  </div>
+
+  <div class="Sieving" style="flex: 2;">
+    <h2>Magnetic Separation</h2>
+    <p><strong>Used to separate:</strong> Solid-Solid</p>
+    <p>
+      Magnetic separation is a technique used to separate magnetic materials from non-magnetic ones using magnetic fields. This process is particularly effective in industries like mining and recycling, where it can isolate valuable minerals or metals from ores or waste. In a typical setup, the material is passed through a magnetic separator, which consists of a magnet that attracts ferromagnetic particles while allowing non-magnetic materials to pass through. The efficiency of magnetic separation depends on factors such as the strength of the magnetic field, the size and shape of the particles, and their magnetic properties. This method is advantageous for its speed, efficiency, and ability to handle large volumes of material with minimal environmental impact.
+    </p>
+    <p><strong>Process:</strong> 
+      Magnetic separation in a laboratory setting involves using magnetic separators to isolate magnetic particles from non-magnetic materials. The process begins by placing the mixture into a container and positioning it near a magnetic separator, such as a magnetic bar or plate. The magnetic field attracts and holds magnetic particles, while non-magnetic particles are collected separately. Laboratory equipment used includes magnetic separators, beakers, and collection containers. To ensure optimal separation, factors like magnetic field strength, particle size, and mixture composition are carefully controlled. The isolated magnetic particles are then washed and dried.
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Magnetic Sepration.png" style="max-width: 300px;">
+  </div>
+
+  <div class="Chromatography" style="flex: 2;">
+    <h2>Chromatography</h2>
+    <p><strong>Used to separate:</strong> Liquid-Liquid</p>
+    <p>
+      Chromatography is a powerful separation technique used to analyze and purify mixtures of substances. It works by passing a mixture through a medium, often a liquid, which allows different components to move at varying rates due to differences in their affinities for the stationary phase and the mobile phase. This results in the separation of the components, making it possible to identify and quantify them. Chromatography is widely used in chemistry, biology, and environmental science for tasks such as purifying compounds, analyzing complex mixtures, and detecting contaminants.
+    </p>
+    <p><strong>Process:</strong> 
+      To perform chromatography, gather your materials, including chromatography paper, solvent, and the sample mixture. Begin by drawing a baseline on the paper and applying a small dot of the sample on it. Prepare a beaker with the solvent, ensuring the baseline remains above the solvent level, and place the paper in the beaker. Allow the solvent to ascend the paper through capillary action for about 15-30 minutes. Once the solvent has traveled an appropriate distance, remove the paper, mark the solvent front, and let it dry. Measure the distances traveled by both the solvent and the sample components to calculate the Rf values for analysis and identification of the components in the mixture.
+  </div>
+    <div class="technique-image" style="flex: 1; text-align: center; margin-left: 20px;">
+    <img src="static/Chromatography.png" style="max-width: 400px;">
+  </div>
+
+  <div class="Dissolution" style="flex: 2;">
+    <h2>Dissolution</h2>
+    <p><strong>Used to separate:</strong> Solid-Solid</p>
+    <p>
+      Dissolution is a separation technique where a solvent is used to dissolve one or more components of a mixture, allowing the soluble components to be separated from the insoluble ones. The process involves adding a suitable solvent to the mixture, stirring or agitating to facilitate dissolution, and then filtering or centrifuging to isolate the dissolved components. The dissolved substances can be recovered through evaporation, crystallization, or other methods. Dissolution is commonly used in various fields, including chemistry, pharmacy, and food processing, to purify substances, extract active ingredients, or separate mixtures. Examples include dissolving salt in water to separate it from sand or dissolving sugar in water to purify it from impurities.
+    </p>
+    <p><strong>Process:</strong> 
+      Dissolution is a separation technique where a solvent is used to dissolve one or more components of a mixture, allowing the soluble components to be separated from the insoluble ones. The process involves adding a suitable solvent to the mixture, stirring or agitating to facilitate dissolution, and then filtering or centrifuging to isolate the dissolved components. To recover the dissolved solid from a solution, you can use the process of evaporation or crystallization.
+  </div>
+
+  <div class="Cryogenic Distillation" style="flex: 2;">
+    <h2>Cryogenic Distillation</h2>
+    <p><strong>Used to separate:</strong> Gas-Gas</p>
+    <p>
+      Cryogenic distillation is a separation technique used to isolate and purify gases at extremely low temperatures, typically -100°C to -150°C. This process exploits the slight differences in boiling points between gases, allowing for efficient separation. In cryogenic distillation, the gas mixture is liquefied, then distilled using a fractionating column. The column's temperature gradient separates the gases based on their boiling points, with the lowest-boiling gas condensing last. This method is particularly effective for separating inert gases like argon, krypton, and xenon, as well as oxygen and nitrogen. Cryogenic distillation requires specialized equipment, including insulated vessels, heat exchangers, and refrigeration systems. Its high energy demands and complexity make it suitable for large-scale industrial applications where high purity is essential.
+    </p>
+    <p><strong>Process:</strong> 
+      To perform cryogenic distillation using lab equipment, one typically requires a few key components: a cryogenic condenser, a distillation column, a refrigeration unit, and appropriate collection vessels. The process begins by placing the gas mixture in a distillation flask connected to the distillation column. The mixture is then cooled using the refrigeration unit, which lowers the temperature to cryogenic levels, typically below −100°C. As the gas cools, components with higher boiling points, such as argon, condense and flow down the column, while lighter gases like neon remain gaseous. The separated components can be collected in different vessels at various stages of the column, ensuring purity. Throughout the process, careful monitoring of temperatures and pressures is essential to optimize separation efficiency and achieve high-purity results.
+  </div>
+
+  </div>
+
+</div>
+
+  <script>
+
+
+    document.getElementById("finderLink").addEventListener("click", function () {
+        document.getElementById("finder").style.display = "block";
+        document.getElementById("history").style.display = "none";
+        document.getElementById("Technique").style.display = "none";
+      });
+  
+      document.getElementById("historyLink").addEventListener("click", function () {
+        document.getElementById("history").style.display = "block";
+        document.getElementById("finder").style.display = "none";
+        document.getElementById("Technique").style.display = "none";
+      });
+  
+      document.getElementById("TechniquesLink").addEventListener("click", function () {
+        document.getElementById("Technique").style.display = "block";
+        document.getElementById("finder").style.display = "none";
+        document.getElementById("history").style.display = "none";
+      });  
+
+    const questions = {
+      "solid-liquid": [
+        { question: "Is the solid dissolved in the liquid?", name: "dissolved" },
+        { question: "Do you want to purify the dissolved solid?", name: "purify" },
+        { question: "Are there impurities that need to be removed?", name: "impurities" },
+        { question: "Are the solid particle size significantly larger than the liquid?", name: "particle_size" },
+        { question: "Is the liquid viscous?", name: "viscous" }
+      ],
+      "liquid-liquid": [
+        { question: "Are the liquids miscible?", name: "miscible" },
+        { question: "Do the liquids have significantly different boiling points?", name: "boiling_difference" },
+        { question: "Is the boiling point difference greater than 25°C?", name: "greater_than_25" },
+        { question: "Are the liquids colored?", name: "colored" }
+      ],
+      "gas-gas": [
+        { question: "Is the gas mixture a vapor or a gas?", name: "vapor_or_gas" },
+        { question: "Are the components chemically similar?", name: "chemically_similar" },
+        { question: "Are the gases reactive?", name: "reactive" }
+      ],
+      "solid-solid": [
+        { question: "Are the solids different in size or density?", name: "different_size_density" },
+        { question: "Do the solids have different magnetic properties?", name: "magnetic_properties" },
+        { question: "Is one of the solids soluble in a suitable solvent while the other is not?", name: "soluble" }
+      ]
+    };
+
+
+    document.querySelector('select[name="mixture_type"]').addEventListener("change", function () {
+      const selectedType = this.value;
+      const questionsDiv = document.getElementById("questions");
+      questionsDiv.innerHTML = "";
+
+      questions[selectedType].forEach((q) => {
+        if (q.name === "vapor_or_gas") {
+          questionsDiv.innerHTML += `<label>${q.question}</label><br>
+                                               <select name="${q.name}" required>
+                                                   <option value="">Select...</option>
+                                                   <option value="gas">Gas</option>
+                                                   <option value="vapor">Vapor</option>
+                                               </select><br><br>`;
+        } else {
+          questionsDiv.innerHTML += `<label>${q.question}</label><br>
+                                               <select name="${q.name}" required>
+                                                   <option value="">Select...</option>
+                                                   <option value="yes">Yes</option>
+                                                   <option value="no">No</option>
+                                               </select><br><br>`;
+        }
+      });
+    });
+  </script>
+</body>
+
+
+</html>
+
